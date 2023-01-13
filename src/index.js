@@ -8,7 +8,7 @@ const app = express();
 
 dbService.connecter();
 require('./config/cookieParserConfig')(app);//cookie parser
-app.use(cors({ origin: ['http://localhost:4200', "https://angular-cook-blog.web.app", 'http://localhost:3000', 'https://cook-blog-d3ed8.web.app'], credentials: true }));
+app.use(cors({ origin: ['http://localhost:3000', 'https://cook-blog-d3ed8.web.app'], credentials: true }));
 app.use(auth);//auth middleware
 require('./config/expressConfig')(app);//express config
 app.use(errorHandler)//error handler
