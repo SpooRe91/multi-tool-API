@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-console.log(process.env.DB_QUERY_STRING);
+
 exports.connecter = async () => {
     try {
         mongoose.connection.on('open', () => console.log('DB connected'));
