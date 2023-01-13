@@ -83,7 +83,6 @@ router.post('/login', isGuest, async (req, res, next) => {
 router.get('/logout', isAuth, (req, res) => {
     res.clearCookie(SESSION_NAME, {
         path: "/",
-        domain: "localhost",
         httpOnly: true, sameSite: "none",
         secure: true
     });
