@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "a coocking back-end project with express.js\r ![cover](https://user-images.githubusercontent.com/85784810/174287568-5c1a4d6b-6f1c-43f6-b881-31a0e52fafbc.JPG)",
+  "description": "This is a coocking back-end project with express.js\r ![cover](https://user-images.githubusercontent.com/85784810/174287568-5c1a4d6b-6f1c-43f6-b881-31a0e52fafbc.JPG)",
   "main": "index.js",
   "dependencies": {
     "abbrev": "^1.1.1",
