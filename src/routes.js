@@ -5,7 +5,6 @@ const homePageController = require('./controllers/homePageController');
 const searchController = require('./controllers/searchController');
 const createController = require('./controllers/createController');
 const authController = require('./controllers/authController');
-// const readmeController = require('./controllers/readmeController');
 
 router.use((req, res, next) => {
     console.log(`ORIGIN: ${req.get("origin")} - REQUEST: ${req.method} >> PATH: ${req.path}`);
