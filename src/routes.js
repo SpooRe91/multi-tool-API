@@ -7,7 +7,7 @@ const createController = require('./controllers/createController');
 const authController = require('./controllers/authController');
 
 router.use((req, res, next) => {
-    console.log(`ORIGIN: ${req.get("origin")} - REQUEST: ${req.method} >> PATH: ${req.path}`);
+    console.log(`ORIGIN: ${req.headers.host} - REQUEST: ${req.method} >> PATH: ${req.path}`);
     next();
 })
 router.use(homePageController);
