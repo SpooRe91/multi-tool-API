@@ -25,6 +25,7 @@ app.use(
       "https://cook-blog-d3ed8.web.app",
       "https://mb-cookblog.vercel.app",
       "https://angular-cook-blog.web.app",
+      "https://destiny2-bgs.vercel.app",
     ],
     credentials: true,
   })

@@ -9,7 +9,7 @@ router.get("/pod", async (req, res) => {
       .create({ baseURL: "https://api.nasa.gov/" })
       .get(`planetary/apod?api_key=${process.env.NASA_API_KEY}`);
     const data = await result;
-    console.log(data.data);
+
     if (data.status === 200) {
       res.status(200).json(data.data);
     }
