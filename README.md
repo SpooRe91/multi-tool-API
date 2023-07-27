@@ -6,7 +6,7 @@
 
 **Using the cook-blog-API:**
 
-**API**: "http://localhost:3030"
+**API**: "https://mb-cook-server.vercel.app/"
 
 ***REGULAR:***
 <br/>
