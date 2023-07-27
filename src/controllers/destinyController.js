@@ -18,7 +18,9 @@ router.get("/clanInfo", async (req, res) => {
     }
   } catch (error) {
     if (error instanceof Error) {
-      res.status(error.status || 400).json(error);
+      res
+        .status(error.status || 400)
+        .json("There is a problem with the request, please try again later!");
     }
   }
 });
@@ -119,7 +121,9 @@ router.get("/news", async (req, res) => {
     }
   } catch (error) {
     if (error instanceof Error) {
-      res.status(error.status || 400).json(error);
+      res
+        .status(error.status || 400)
+        .json("There is a problem with the request, please try again later!");
     }
   }
 });
