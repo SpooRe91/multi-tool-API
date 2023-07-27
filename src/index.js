@@ -4,6 +4,7 @@ const dbService = require("./config/mongoseConfig");
 const { auth } = require("./middlewares/authMiddleware");
 const { errorHandler } = require("./middlewares/errorHandlerMiddleware");
 const cors = require("cors");
+const limiter = require("./middlewares/rateLimiter");
 // const { client } = require('./db');
 const app = express();
 
@@ -16,6 +17,7 @@ dbService.connecter();
 //     }
 // })
 require("./config/cookieParserConfig")(app); //cookie parser
+app.use(limiter);
 app.use(
   cors({
     origin: [
