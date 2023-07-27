@@ -44,6 +44,6 @@ app.listen(process.env.PORT, (error) => {
     `"Cook-blog API" listening to port http://localhost:${process.env.PORT}`
   );
   console.log(
-    `"Cook-blog" React APP and REST API documentation is available at: https://github.com/SpooRe91/react-cook-server/blob/main/src/Cook-Blog-readme.md`
+    `"Cook-blog" React APP and REST API documentation is available at: https://github.com/SpooRe91/react-cook-server/blob/main/README.md`
   );
 });
