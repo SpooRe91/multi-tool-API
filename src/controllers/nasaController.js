@@ -25,14 +25,15 @@ router.get("/articles/", async (req, res) => {
   const query = req.query.query;
   const forbidden = ["javascript", "script", "code", "/", ":", "<", ">", "\\"];
 
+  if (!query) {
+    return res.status(data.status || 400).json("Please provide a query!");
+  }
+
   if (forbidden.includes(query.toLowerCase())) {
     return res.status(400).json("ERROR: Invalid query search!");
   }
 
   try {
-    if (!query) {
-      return res.status(data.status || 400).json("Please provide a query!");
-    }
     const result = axios
       .create({ baseURL: "https://api.spaceflightnewsapi.net/" })
       .get(
