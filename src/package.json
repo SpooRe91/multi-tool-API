@@ -239,6 +239,7 @@
     "url-parse-lax": "^3.0.0",
     "util-deprecate": "^1.0.2",
     "utils-merge": "^1.0.1",
+    "uuid": "^9.0.0",
     "validator": "^13.7.0",
     "validator.js": "^2.0.4",
     "vary": "^1.1.2",
