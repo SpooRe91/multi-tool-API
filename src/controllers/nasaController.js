@@ -30,6 +30,9 @@ router.get("/articles/", async (req, res) => {
   }
 
   try {
+    if (!query) {
+      return res.status(data.status || 400).json("Please provide a query!");
+    }
     const result = axios
       .create({ baseURL: "https://api.spaceflightnewsapi.net/" })
       .get(
