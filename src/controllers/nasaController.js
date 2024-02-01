@@ -42,15 +42,20 @@ router.get("/articles/", async (req, res) => {
 
     const data = await result;
 
-    if (data.data.count !== 0 && data.status >= 200 && data.status <= 300) {
-      return res.status(data.status || 200).json(data.data);
+    if (data.status >= 200 && data.status <= 300) {
+      console.log(data.status);
+      if (data.data.count !== 0) {
+        console.log(data.data);
+        return res.status(data.status || 200).json(data.data);
+
+      } else {
+        console.log(data.data.results);//most probably - []
+        return res
+          .status(data.status || 200)
+          .json("Sorry, there are no results!");
+      }
     }
 
-    if (data.data.count === 0) {
-      return res
-        .status(data.status || 200)
-        .json("Sorry, there are no results!");
-    }
   } catch (error) {
     if (typeof error === "string") {
       res.status(data.status || 400).json({ message: error.toUpperCase() });
