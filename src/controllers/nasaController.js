@@ -1,5 +1,6 @@
 const router = require("express").Router();
 require("dotenv").config();
+const { AxiosError } = require("axios");
 const axios = require("axios");
 
 router.get("/pod", async (req, res) => {
@@ -22,15 +23,21 @@ router.get("/pod", async (req, res) => {
 });
 
 router.get("/images/", async (req, res) => {
-  const { query, page } = req.query;
-
+  const { query } = req.query;
+  console.log();
   try {
-    const imagesApi = axios.create({ baseURL: "https://images-api.nasa.gov/" });
+    const imagesApi = axios.create({ baseURL: "https://nasa-api-explorer.vercel.app/api/" });
     const result = await imagesApi.get(
-      `search?q=${query}&media_type=image&page_size=20&page=${page ? page : 1}`);
-    console.log(result);
+      `images?q=${query}`
+      // `search?q=${query}&media_type=image&page_size=20&page=${page ? page : 1}`
+    );
+    if (!result) {
+      return
+    };
+    res.status(200).json(result.data);
   } catch (error) {
-    res.json(error)
+    const { response: { status }, message } = error;
+    res.status(status || 400).json(message);
   }
 });
 
