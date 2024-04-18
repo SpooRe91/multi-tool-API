@@ -21,6 +21,19 @@ router.get("/pod", async (req, res) => {
   }
 });
 
+router.get("/images/", async (req, res) => {
+  const { query, page } = req.query;
+
+  try {
+    const imagesApi = axios.create({ baseURL: "https://images-api.nasa.gov/" });
+    const result = await imagesApi.get(
+      `search?q=${query}&media_type=image&page_size=20&page=${page ? page : 1}`);
+    console.log(result);
+  } catch (error) {
+    res.json(error)
+  }
+});
+
 router.get("/articles/", async (req, res) => {
   const query = req.query.query;
   const forbidden = ["javascript", "script", "code", "/", ":", "<", ">", "\\"];
