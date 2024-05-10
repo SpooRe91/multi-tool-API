@@ -81,7 +81,7 @@ router.get("/planets/", async (req, res) => {
 
     const data = await result;
 
-    if (data.status >= 200 && data.status <= 300) {
+    if (data && data.status >= 200 && data.status <= 300) {
 
       if (!data.data.length) {
         return res
@@ -93,9 +93,9 @@ router.get("/planets/", async (req, res) => {
 
   } catch (error) {
     if (typeof error === "string") {
-      res.status(data.status || 400).json({ message: error.toUpperCase() });
+      res.status(data?.status || 400).json({ message: error.toUpperCase() });
     } else if (error instanceof Error) {
-      res.status(data.status || 400).json(error.message);
+      res.status(data?.status || 400).json(error.message);
     }
   }
 });
