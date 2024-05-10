@@ -65,4 +65,39 @@ router.get("/articles/", async (req, res) => {
   }
 });
 
+router.get("/planets/", async (req, res) => {
+  const query = req.query.query;
+  try {
+    const result = axios
+      .create({ baseURL: "https://api.api-ninjas.com" })
+      .get(
+        `/v1/planets?name=${query.toLowerCase()}`,
+        {
+          headers: {
+            'X-Api-key': process.env.API_NINJAS_PLANETS_API_KEY
+          }
+        }
+      );
+
+    const data = await result;
+
+    if (data.status >= 200 && data.status <= 300) {
+
+      if (!data.data.length) {
+        return res
+          .status(data.status || 200)
+          .json("Sorry, there is nothing to show!");
+      }
+      return res.status(data.status || 200).json(data.data);
+    }
+
+  } catch (error) {
+    if (typeof error === "string") {
+      res.status(data.status || 400).json({ message: error.toUpperCase() });
+    } else if (error instanceof Error) {
+      res.status(data.status || 400).json(error.message);
+    }
+  }
+});
+
 module.exports = router;
