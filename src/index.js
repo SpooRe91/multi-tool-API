@@ -25,6 +25,7 @@ app.use(
       "http://localhost:8080",
       "https://mb-space-explorer.vercel.app",
       "https://mb-space-explorer-dev.vercel.app",
+      "https://mb-portfolio.vercel.app",
       "https://cook-blog-d3ed8.web.app",
       "https://mb-cookblog.vercel.app",
       "https://angular-cook-blog.web.app",
