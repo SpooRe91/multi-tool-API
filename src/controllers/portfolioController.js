@@ -7,7 +7,7 @@ router.post("/portfolio", portfolioValidator, async (req, res) => {
     try {
         res.status(200).json(data);
     } catch (error) {
-        console.error(error); // Log the error for debugging purposes
+        console.error(error);
         res.status(500).json({ message: getErrorMessage(error) });
     }
 });
