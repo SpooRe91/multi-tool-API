@@ -5,9 +5,10 @@ const { getErrorMessage } = require("../utils/errorHelpers");
 
 router.post("/portfolio", portfolioValidator, async (req, res) => {
     try {
+        console.log("Incoming request validated successfully.");
         res.status(200).json(data);
     } catch (error) {
-        console.error(error);
+        console.error("Error in portfolio route:", error);
         res.status(500).json({ message: getErrorMessage(error) });
     }
 });

@@ -30,8 +30,10 @@ exports.portfolioValidator = async (req, res, next) => {
         if (utilKey !== process.env.PORTFOLIO_UTIL_KEY) {
             throw new Error("Incorrect utilKey!");
         }
+        console.log("Util key validated successfully.");
         next();
     } catch (error) {
+        console.error("Validation error:", error);
         res.status(403).json({ message: getErrorMessage(error) });
     }
 };
