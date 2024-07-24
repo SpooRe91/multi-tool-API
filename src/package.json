@@ -264,6 +264,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "nodemon": "^2.0.18"
   }
 }
