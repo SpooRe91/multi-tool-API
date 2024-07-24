@@ -21,7 +21,7 @@ exports.registerValidator = async (req, res, next) => {
 };
 
 exports.portfolioValidator = async (req, res, next) => {
-    const utilKey = req.headers["x-secret-key"];
+    const utilKey = req.headers["x-util-key"];
 
     try {
         if (!utilKey) {

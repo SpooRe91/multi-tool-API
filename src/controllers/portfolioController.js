@@ -3,7 +3,7 @@ const { portfolioValidator } = require("../utils/validators");
 const data = require("../_portfolio-data.json");
 const { getErrorMessage } = require("../utils/errorHelpers");
 
-router.post("/portfolio", portfolioValidator, async (req, res) => {
+router.get("/portfolio", portfolioValidator, async (req, res) => {
     try {
         console.log("Incoming request validated successfully.");
         res.status(200).json(data);
