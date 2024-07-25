@@ -10,7 +10,7 @@ Welcome to the **multi-tool**! This API enables users to manage recipes, authent
 
 All API endpoints are prefixed with the base URL:
 ```
-https://mb-cook-server.vercel.app/
+https://mb-multi-tool-api.vercel.app
 ```
 
 ---
