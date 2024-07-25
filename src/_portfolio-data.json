@@ -28,6 +28,13 @@
         "url": "https://mb-cookblog.vercel.app/"
     },
     {
+        "img": "/stopwatch.webp",
+        "title": "Stopwatch",
+        "text": "Simple stopwatch with few functionalities.",
+        "content": "Stopwatch app created to count the time elapsed, pause, clear or continue the timer.",
+        "url": "https://simple-stopwatch.vercel.app/"
+    },
+    {
         "img": "",
         "title": "Multi-tool API",
         "text": "An API tool providing endpoints for numerous projects and usages.",
