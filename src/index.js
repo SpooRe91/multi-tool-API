@@ -5,17 +5,9 @@ const { auth } = require("./middlewares/authMiddleware");
 const { errorHandler } = require("./middlewares/errorHandlerMiddleware");
 const cors = require("cors");
 const limiter = require("./middlewares/rateLimiter");
-// const { client } = require('./db');
 const app = express();
 
 dbService.connecter();
-// client.connect((err) => {
-//     if (err) {
-//         console.error('SQL connection error', err.stack)
-//     } else {
-//         console.log('SQL connected')
-//     }
-// })
 require("./config/cookieParserConfig")(app); //cookie parser
 app.use(limiter);
 app.use(
@@ -33,6 +25,7 @@ app.use(
             "https://task-users-list.vercel.app",
         ],
         credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization", "x-util-key"],
     })
 );
 app.use(auth); //auth middleware
