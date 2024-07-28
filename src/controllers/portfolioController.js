@@ -6,6 +6,7 @@ const nodemailer = require("nodemailer");
 const validator = require("validator");
 
 const { sanitizeInput, handleValidationErrors } = require("../middlewares/emailValidator");
+const { emailTemplate } = require("../utils/emailTemplate");
 
 require("dotenv").config();
 
@@ -38,14 +39,10 @@ router.post("/contact", sanitizeInput, handleValidationErrors, async (req, res) 
     const mailOptions = {
         from: process.env.MY_MAIL,
         to: process.env.MAIL_TO,
-        subject: `PORTFOLIO APP, new message from ${sanitizedFirstName} ${sanitizedLastName}`,
+        subject: `My PORTFOLIO APP, new message from ${sanitizedFirstName} ${sanitizedLastName}`,
         text: `Name: ${sanitizedFirstName} ${sanitizedLastName}\nEmail: ${sanitizedEmail}\n\nMessage:\n${sanitizedMessage}`,
-        html: `<p>Name: ${sanitizedFirstName} ${sanitizedLastName}</p>
-               <p>Email: ${sanitizedEmail}</p>
-               <p>Message:</p>
-               <p>${sanitizedMessage}</p>`,
+        html: emailTemplate(sanitizedFirstName, sanitizedLastName, sanitizedEmail, sanitizedMessage),
     };
-
     try {
         await transporter.sendMail(mailOptions);
         res.status(200).send("Email sent successfully");
