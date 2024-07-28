@@ -1,8 +1,23 @@
 // emailValidator.js
-const { validationResult } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 const xss = require("xss-clean");
 
-const sanitizeInput = [xss()];
+const sanitizeInput = [
+    xss(),
+    body("firstName")
+        .trim()
+        .escape(),
+    body("lastName")
+        .trim()
+        .escape(),
+    body("email")
+        .normalizeEmail()
+        .trim()
+        .escape(),
+    body("message")
+        .trim()
+        .escape(),
+];
 
 const handleValidationErrors = (req, res, next) => {
     const errors = validationResult(req);
