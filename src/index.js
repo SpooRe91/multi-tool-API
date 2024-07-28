@@ -25,7 +25,8 @@ app.use(
             "https://task-users-list.vercel.app",
         ],
         credentials: true,
-        allowedHeaders: ["Access-Control-Allow-Origin", "Content-Type", "Authorization", "x-util-key"],
+        allowedHeaders: ["Content-Type", "Authorization", "x-util-key"],
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     })
 );
 app.use(auth); //auth middleware
