@@ -5,7 +5,7 @@ const { getErrorMessage } = require("../utils/errorHelpers");
 const nodemailer = require("nodemailer");
 const validator = require("validator");
 
-const { sanitizeInput, validateEmail, handleValidationErrors } = require("../middlewares/emailValidator");
+const { sanitizeInput, handleValidationErrors } = require("../middlewares/emailValidator");
 
 require("dotenv").config();
 
@@ -19,7 +19,7 @@ router.get("/portfolio", portfolioValidator, async (req, res) => {
     }
 });
 
-router.post("/contact", sanitizeInput, validateEmail, handleValidationErrors, async (req, res) => {
+router.post("/contact", sanitizeInput, handleValidationErrors, async (req, res) => {
     const { firstName, lastName, email, message } = req.body;
 
     const sanitizedFirstName = validator.escape(firstName);
