@@ -32,17 +32,12 @@ exports.emailTemplate = (firstName, lastName, email, message) => `
         .content p {
             margin: 10px 0;
         }
-        .footer {
-            text-align: center;
-            color: #888888;
-            font-size: 12px;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>New Message from Portfolio</h1>
+            <h3>New Message from Portfolio</h1>
         </div>
         <div class="content">
             <p><strong>Name:</strong> ${firstName} ${lastName}</p>
