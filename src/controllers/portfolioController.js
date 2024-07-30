@@ -39,7 +39,7 @@ router.post("/contact", sanitizeInput, handleValidationErrors, async (req, res) 
     const mailOptions = {
         from: process.env.MY_MAIL,
         to: process.env.MAIL_TO,
-        subject: `PORTFOLIO APP: New email from ${sanitizedFirstName} ${sanitizedLastName}`,
+        subject: `PORTFOLIO APP MAIL: From ${sanitizedFirstName} ${sanitizedLastName}`,
         text: `Name: ${sanitizedFirstName} ${sanitizedLastName}\nEmail: ${sanitizedEmail}\n\nMessage:\n${sanitizedMessage}`,
         html: emailTemplate(sanitizedFirstName, sanitizedLastName, sanitizedEmail, sanitizedMessage),
     };
