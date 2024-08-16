@@ -25,7 +25,7 @@ app.use(
             "https://task-users-list.vercel.app",
         ],
         credentials: true,
-        allowedHeaders: ["Content-Type", "Authorization", "x-util-key"],
+        allowedHeaders: ["Content-Type", "Authorization", "x-util-key", "Access-Control-Allow-Credentials"],
         methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     })
 );
