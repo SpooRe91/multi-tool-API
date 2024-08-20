@@ -3,42 +3,42 @@
         "img": "/android-chrome-256x256.webp",
         "title": "Space explorer",
         "text": "App about space, NASA, our solar system and more.",
-        "content": "This is an application built with React, TypeScript, Redux, SCSS, MaterialUI, Axios",
+        "content": "A React app using TypeScript, Redux, SCSS, and MaterialUI to explore space, NASA, and our solar system.",
         "url": "https://mb-space-explorer.vercel.app/"
     },
     {
         "img": "/Screenshot-2024-07-05-133218.webp",
         "title": "To-do App",
         "text": "A regular TODO app with several functionalities.",
-        "content": "This is a TODO app built` with React, TypeScript, Redux, SCSS. It has several features, like adding, editing, deleting tasks. You can also delete all, review your done tasks and more.",
+        "content": "A React, TypeScript, Redux, and SCSS-powered app for task management, featuring add, edit, and delete functions.",
         "url": "https://mb-todo.vercel.app/"
     },
     {
         "img": "/destiny_2.webp",
         "title": "Destiny 2 react app",
         "text": "An online-only game.",
-        "content": "This project is a React-based web application that interacts with Destiny 2's API to fetch and display game-related data.",
+        "content": "A React app that integrates with Destiny 2's API to fetch and display game-related data.",
         "url": "https://destiny2-bgs.vercel.app/"
     },
     {
         "img": "/cook-blog.webp",
         "title": "Cook-blog",
         "text": "Cook-Blog App with Login and Register Options.",
-        "content": "COOK-Blog is a web application designed for cooking enthusiasts to explore recipes, create their own recipes, and manage their profiles.",
+        "content": "A cooking app for exploring, creating, and managing recipes. Built with React and CSS.",
         "url": "https://mb-cookblog.vercel.app/"
     },
     {
         "img": "/stopwatch.webp",
         "title": "Stopwatch",
         "text": "Simple stopwatch with few functionalities.",
-        "content": "Stopwatch app created to count the time elapsed, pause, clear or continue the timer.",
+        "content": "A simple stopwatch app to track elapsed time, pause, clear, and continue the timer.",
         "url": "https://simple-stopwatch.vercel.app/"
     },
     {
         "img": "",
         "title": "Multi-tool API",
         "text": "An API tool providing endpoints for numerous projects and usages.",
-        "content":"Backend server using Node.js and Express.js, used to provide data to different projects of mine.",
+        "content": "A Node.js and Express.js backend serving multiple projects through various API endpoints.",
         "url": "https://github.com/SpooRe91/multi-tool-API"
     }
 ]
