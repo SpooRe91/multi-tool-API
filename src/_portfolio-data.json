@@ -15,8 +15,8 @@
     },
     {
         "img": "/destiny_2.webp",
-        "title": "Destiny 2 react app",
-        "text": "An online-only game.",
+        "title": "Destiny 2 clan app",
+        "text": "Destiny 2 is an online only game.",
         "content": "A React app that integrates with Destiny 2's API to fetch and display game-related data.",
         "url": "https://destiny2-bgs.vercel.app/"
     },
