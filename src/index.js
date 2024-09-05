@@ -1,36 +1,19 @@
-require("dotenv").config();
-const express = require("express");
-const dbService = require("./config/mongoseConfig");
-const { auth } = require("./middlewares/authMiddleware");
-const { errorHandler } = require("./middlewares/errorHandlerMiddleware");
-const cors = require("cors");
-const limiter = require("./middlewares/rateLimiter");
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
 const app = express();
+const dbService = require('./config/mongoseConfig');
+const corsOptions = require('./config/allowedOrigins');
+const { auth } = require('./middlewares/authMiddleware');
+const { errorHandler } = require('./middlewares/errorHandlerMiddleware');
+const limiter = require('./middlewares/rateLimiter');
 
-dbService.connecter();
-require("./config/cookieParserConfig")(app); //cookie parser
+dbService.connecter(); // Database connect
+require('./config/cookieParserConfig')(app); //cookie parser
 app.use(limiter);
-app.use(
-    cors({
-        origin: [
-            "http://localhost:3000",
-            "http://localhost:8080",
-            "https://mb-space-explorer.vercel.app",
-            "https://mb-space-explorer-dev.vercel.app",
-            "https://mb-portfolio-app.vercel.app",
-            "https://cook-blog-d3ed8.web.app",
-            "https://mb-cookblog.vercel.app",
-            "https://angular-cook-blog.web.app",
-            "https://destiny2-bgs.vercel.app",
-            "https://task-users-list.vercel.app",
-        ],
-        credentials: true,
-        allowedHeaders: ["Content-Type", "Authorization", "x-util-key", "Access-Control-Allow-Credentials"],
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    })
-);
+app.use(cors(corsOptions));
 app.use(auth); //auth middleware
-require("./config/expressConfig")(app); //express config
+require('./config/expressConfig')(app); //express config
 app.use(errorHandler); //error handler
 
 app.listen(process.env.PORT, (error) => {
