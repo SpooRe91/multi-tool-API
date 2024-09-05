@@ -2,13 +2,13 @@ const router = require('express').Router();
 const User = require('../models/User');
 
 const authService = require('../services/authService');
-const { SESSION_NAME } = require('../config/constants');
 const { registerValidator } = require('../utils/validators');
 const { getErrorMessage } = require('../utils/errorHelpers');
 
 const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 const { modelValidator } = require('../middlewares/modelValidatorMiddleware');
 
+const  SESSION_NAME  = process.env.SESSION_NAME;
 
 router.post('/register', isGuest, modelValidator(User), registerValidator, async (req, res, next) => {
 

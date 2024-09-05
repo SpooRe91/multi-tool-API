@@ -1,5 +1,5 @@
 const allowedOrigins = process.env.ALLOWED_ORIGINS.split(',');
-const corsOptions = {
+exports.corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true);
@@ -12,5 +12,3 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization', 'x-util-key', 'Access-Control-Allow-Credentials'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 };
-
-module.exports = corsOptions;

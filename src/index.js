@@ -2,18 +2,17 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const dbService = require('./config/mongoseConfig');
-const corsOptions = require('./config/allowedOrigins');
 const { auth } = require('./middlewares/authMiddleware');
 const { errorHandler } = require('./middlewares/errorHandlerMiddleware');
 const limiter = require('./middlewares/rateLimiter');
+const { corseOptions, cookieParserConfig, expressConfig, mongoseConfig } = require('./config');
 
-dbService.connecter(); // Database connect
-require('./config/cookieParserConfig')(app); //cookie parser
+mongoseConfig(); // Database connect
+cookieParserConfig(app); //Cookie parser config
 app.use(limiter);
-app.use(cors(corsOptions));
+app.use(cors(corseOptions));
 app.use(auth); //auth middleware
-require('./config/expressConfig')(app); //express config
+expressConfig(app); //express config
 app.use(errorHandler); //error handler
 
 app.listen(process.env.PORT, (error) => {

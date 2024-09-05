@@ -2,7 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const { SALT_ROUNDS } = require('../config/constants');
+const SALT_ROUNDS = process.env.SALT_ROUNDS;
 const secret = process.env.SECRET;
 const { getErrorMessage } = require('../utils/errorHelpers');
 
@@ -13,7 +13,7 @@ exports.register = async ({ email, password, image }) => {
 
         if (existing) {
             throw new Error('Моля, въведете друг e-mail!');
-        };
+        }
 
         const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
 
@@ -25,7 +25,7 @@ exports.register = async ({ email, password, image }) => {
 
         return createdUser;
     } catch (error) {
-        return (getErrorMessage(error))
+        return getErrorMessage(error);
     }
 };
 
@@ -35,14 +35,14 @@ exports.login = async (email, password) => {
 
     if (!user) {
         throw new Error('Невалидни e-mail или парола!');
-    };
+    }
 
     //Verify password
     const isValid = await bcrypt.compare(password, user.password);
 
     if (!isValid) {
         throw new Error('Невалидни e-mail или парола!');
-    };
+    }
 
     return user;
 };
@@ -51,14 +51,13 @@ exports.login = async (email, password) => {
 
 exports.createToken = (user) => {
     const payload = { _id: user._id, email: user.email };
-    const options = { expiresIn: "2d" };
+    const options = { expiresIn: '2d' };
 
     return new Promise((resolve, reject) => {
         jwt.sign(payload, secret, options, (err, decodedToken) => {
-
             if (err) {
                 return reject(err.message);
-            };
+            }
             resolve(decodedToken);
         });
     });

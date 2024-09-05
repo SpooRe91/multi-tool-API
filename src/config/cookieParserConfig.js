@@ -1,5 +1,5 @@
 const cookieParser = require('cookie-parser');
 
-module.exports = (app) => {
+exports.cookieParserConfig = (app) => {
     app.use(cookieParser());
-}
+};
